@@ -74,10 +74,24 @@ const Leaderboard = () => {
   };
 
   return (
-    <section className="py-[100px] px-6 pb-[120px] text-center relative z-[4]">
-      <div className="mx-auto">
+    <section className="py-[100px] px-6 pb-[120px] text-center relative z-[4] overflow-hidden">
+      {/* Sky gradient tint */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'linear-gradient(180deg, rgba(240,249,255,0.8) 0%, rgba(228,244,255,0.9) 100%)' }} />
+
+      {/* Cloud blobs */}
+      <div className="absolute top-[8%] left-[-5%] w-[380px] h-[150px] opacity-35 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(200,232,255,1) 0%, transparent 70%)', filter: 'blur(40px)', animation: 'float-slow 11s ease-in-out infinite' }} />
+      <div className="absolute bottom-[8%] right-[-4%] w-[320px] h-[140px] opacity-28 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(210,238,255,1) 0%, transparent 70%)', filter: 'blur(35px)', animation: 'float-slow 14s ease-in-out infinite reverse' }} />
+
+      <div className="mx-auto relative z-[1]">
         <div className="mb-[60px]">
-          <h3 className="text-[clamp(2.5rem,5vw,3.5rem)] font-extrabold text-text-main my-4">Leaderboard</h3>
+          <span className="inline-block text-[0.8rem] font-bold tracking-[0.15em] uppercase mb-4 px-3 py-1 rounded-full"
+            style={{ background: 'rgba(37,119,212,0.1)', color: '#1a60b8' }}>
+            Hall of Fame
+          </span>
+          <h2 className="text-[clamp(2.5rem,5vw,3.5rem)] font-extrabold text-text-main my-3">Leaderboard</h2>
           <p className="text-text-muted">Recognizing our top contributors and cloud learners of the month.</p>
         </div>
 
@@ -112,7 +126,8 @@ const Leaderboard = () => {
           })}
         </div>
 
-        <div className="max-w-[800px] mx-auto mb-10 bg-transparent rounded-lg overflow-hidden relative shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+        <div className="max-w-[800px] mx-auto mb-10 rounded-[20px] overflow-hidden relative"
+          style={{ background: 'rgba(255,255,255,0.65)', backdropFilter: 'blur(14px)', border: '1px solid rgba(255,255,255,0.8)', boxShadow: '0 8px 32px rgba(37,119,212,0.08)' }}>
           {tableData.map((row) => (
             <div key={row.rank} className="grid grid-cols-[50px_1fr_100px] gap-px items-center p-4 border-b border-black/5 transition-colors duration-300 hover:bg-[#f9fafb]">
               <div className="font-extrabold text-text-muted text-[0.95rem]">{row.rank}</div>
@@ -128,7 +143,7 @@ const Leaderboard = () => {
           ))}
         </div>
 
-        <button className="bg-transparent border border-primary text-[rgba(18,35,85,0.7)] px-[32px] py-[14px] rounded-[10px] text-[0.9rem] font-normal leading-[normal] hover:-translate-y-[1px] shadow-[0_4px_14px_rgba(47,112,186,0.139)] transition-all">
+        <button className="btn-glow bg-[#2577d4] text-white px-[32px] py-[14px] rounded-[10px] text-[0.9rem] font-semibold shadow-[0_4px_20px_rgba(37,119,212,0.3)] transition-all">
           View full leaderboard
         </button>
       </div>

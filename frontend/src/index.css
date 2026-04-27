@@ -5,7 +5,9 @@
 @layer base {
   body {
     font-family: 'League Spartan', 'Inter', sans-serif;
-    @apply bg-gradient-to-br from-[#F0F9FF] to-[#E0F2FE] text-text-main overflow-x-hidden;
+    @apply text-text-main overflow-x-hidden;
+    background: linear-gradient(165deg, #c9e8ff 0%, #ddf0ff 25%, #eef7ff 55%, #f5f0ff 80%, #e8f4ff 100%);
+    min-height: 100vh;
   }
 
   h1,
@@ -19,10 +21,132 @@
   }
 }
 
+/* ────────────────────────────────────────
+   CLOUD FLOAT ANIMATIONS
+──────────────────────────────────────── */
+@keyframes float-vertical {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes float-slow {
+
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+}
+
+@keyframes drift-horizontal {
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(40px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+/* ────────────────────────────────────────
+   MASCOT FLOAT
+──────────────────────────────────────── */
+@keyframes mascot-float {
+
+  0%,
+  100% {
+    transform: translateY(4px) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-4px) rotate(1deg);
+  }
+}
+
+/* ────────────────────────────────────────
+   STAR TWINKLE
+──────────────────────────────────────── */
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+/* ────────────────────────────────────────
+   CTA SHIMMER GRADIENT
+──────────────────────────────────────── */
+@keyframes shimmer-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ────────────────────────────────────────
+   SECTION CLOUD DIVIDERS
+──────────────────────────────────────── */
+.cloud-divider-top,
+.cloud-divider-bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cloud-divider-top {
+  top: -2px;
+}
+
+.cloud-divider-bottom {
+  bottom: -2px;
+  transform: rotate(180deg);
+}
+
+.cloud-divider-top svg,
+.cloud-divider-bottom svg {
+  display: block;
+  width: 100%;
+}
+
+/* ────────────────────────────────────────
+   SCROLL REVEAL
+──────────────────────────────────────── */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(12px);
   }
 
   to {
@@ -33,4 +157,53 @@
 
 .animate-fadeIn {
   animation: fadeIn 0.6s ease-out;
+}
+
+/* ────────────────────────────────────────
+   GLASSMORPHISM CARD
+──────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 32px rgba(31, 100, 180, 0.08);
+}
+
+/* ────────────────────────────────────────
+   GLOW BUTTON
+──────────────────────────────────────── */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-glow:hover::after {
+  opacity: 1;
+}
+
+.btn-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 119, 212, 0.35);
+}
+
+/* ────────────────────────────────────────
+   STAR PARTICLES
+──────────────────────────────────────── */
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  animation: twinkle var(--dur, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
 }

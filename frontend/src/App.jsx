@@ -11,12 +11,16 @@ import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import CloudReveal from './components/CloudReveal'
 import PageLoadReveal from './components/PageLoadReveal'
+import ParallaxClouds from './components/ParallaxClouds'
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#F0F9FF] font-['League_Spartan','Inter',sans-serif] text-[#0d2845]">
+    <div className="min-h-screen font-['League_Spartan','Inter',sans-serif] text-[#0d2845] relative">
+      {/* Global parallax cloud background */}
+      <ParallaxClouds />
+
       <Navbar />
-      <main>
+      <main className="relative z-[1]">
         <PageLoadReveal>
           <Hero />
         </PageLoadReveal>
@@ -33,7 +37,7 @@ function App() {
           <Highlights />
         </CloudReveal>
         
-        <div className="relative z-[4] bg-gradient-to-br from-[#F0F9FF] to-[#E0F2FE]">
+        <div className="relative z-[4]">
           <CloudReveal>
             <Leaderboard />
           </CloudReveal>
@@ -54,3 +58,4 @@ function App() {
 }
 
 export default App
+

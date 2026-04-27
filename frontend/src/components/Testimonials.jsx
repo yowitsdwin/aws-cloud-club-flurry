@@ -29,7 +29,14 @@ const Testimonials = () => {
 
   return (
     <section className="relative z-[5] py-20 px-6 overflow-hidden">
-      <div className="max-w-[1100px] mx-auto flex flex-col md:flex-row gap-12 items-start md:items-center">
+      {/* Soft background tint */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'linear-gradient(180deg, rgba(235,248,255,0.5) 0%, rgba(245,243,255,0.5) 100%)' }} />
+
+      <div className="max-w-[1100px] mx-auto relative z-[1]">
+        {/* Glass card wrapper */}
+        <div className="glass-card rounded-[28px] p-10 md:p-14 flex flex-col md:flex-row gap-12 items-start md:items-center">
+
         <div className="md:w-1/3 text-left">
           <h2 className="text-[clamp(2rem,4vw,3rem)] font-extrabold text-text-main mb-6 leading-tight">From our community.</h2>
           <p className="text-text-muted mb-8">Here's what our members had to say about their experience with AWSCC - Flurry.</p>
@@ -68,9 +75,11 @@ const Testimonials = () => {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </section>
+
   );
 };
 

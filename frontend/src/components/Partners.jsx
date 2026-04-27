@@ -12,7 +12,7 @@ const Partners = () => {
   ];
 
   return (
-    <section className="sticky top-[200px] z-[2] py-[40px] lg:py-[60px] bg-[rgba(240,249,255,0.95)] backdrop-blur-[20px] border-y border-white/50 overflow-hidden">
+    <section className="sticky top-[200px] z-[2] py-[40px] lg:py-[60px] overflow-hidden" style={{ background: 'rgba(255,255,255,0.45)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderTop: '1px solid rgba(255,255,255,0.7)', borderBottom: '1px solid rgba(255,255,255,0.7)', boxShadow: '0 4px 30px rgba(37,119,212,0.06)' }}>
       <div className="max-w-[1100px] mx-auto px-6">
         <p className="text-center text-[0.8rem] lg:text-[0.9rem] font-semibold uppercase tracking-[0.1em] text-text-muted mb-5 lg:mb-10">
           Our Community Partners
