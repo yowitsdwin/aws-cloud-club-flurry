@@ -37,11 +37,11 @@ const Leaderboard = () => {
   const getCardClasses = (type) => {
     switch (type) {
       case 'gold':
-        return 'w-[300px] h-[250px] md:w-[220px] md:h-[320px] border-2 border-primary z-[5] order-1 md:order-2 md:-translate-y-[20px] md:scale-110 hover:-translate-y-[10px] md:hover:-translate-y-[25px] hover:scale-[1.02] md:hover:scale-[1.12] hover:shadow-[0_15px_50px_rgba(0,0,0,0.12)]';
+        return 'w-[280px] h-[250px] md:w-[220px] md:h-[320px] border-2 border-primary z-[5] order-1 md:order-2 md:-translate-y-[20px] md:scale-110 hover:-translate-y-[10px] md:hover:-translate-y-[25px] hover:scale-[1.02] md:hover:scale-[1.12] hover:shadow-[0_15px_50px_rgba(0,0,0,0.12)]';
       case 'silver':
-        return 'w-[135px] h-[200px] md:w-[220px] md:h-[320px] border border-black/[0.03] z-[4] order-2 md:order-1 hover:-translate-y-[5px] md:hover:-translate-y-[10px] hover:shadow-[0_15px_50px_rgba(0,0,0,0.12)]';
+        return 'w-[130px] h-[200px] md:w-[220px] md:h-[320px] border border-black/[0.03] z-[4] order-2 md:order-1 hover:-translate-y-[5px] md:hover:-translate-y-[10px] hover:shadow-[0_15px_50px_rgba(0,0,0,0.12)]';
       case 'bronze':
-        return 'w-[135px] h-[200px] md:w-[220px] md:h-[320px] border border-black/[0.03] z-[3] order-3 md:order-3 hover:-translate-y-[5px] md:hover:-translate-y-[10px] hover:shadow-[0_15px_50px_rgba(0,0,0,0.12)]';
+        return 'w-[130px] h-[200px] md:w-[220px] md:h-[320px] border border-black/[0.03] z-[3] order-3 md:order-3 hover:-translate-y-[5px] md:hover:-translate-y-[10px] hover:shadow-[0_15px_50px_rgba(0,0,0,0.12)]';
       default:
         return '';
     }

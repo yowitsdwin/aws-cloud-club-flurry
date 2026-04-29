@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import MembershipModal from './MembershipModal';
 const mascot = '/images/mascot1.svg';
 
 const CTA = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="relative z-[6] px-6 pb-24 pt-10">
       <section
@@ -42,6 +45,7 @@ const CTA = () => {
               <button
                 className="btn-glow px-[32px] py-[12px] rounded-[10px] text-[0.95rem] font-semibold transition-all cursor-pointer"
                 style={{ background: 'rgba(255,255,255,1)', color: '#1a4fa8', boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}
+                onClick={() => setIsModalOpen(true)}
               >
                 Become a Member
               </button>
@@ -66,6 +70,9 @@ const CTA = () => {
 
         </div>
       </section>
+
+      {/* Membership application modal */}
+      <MembershipModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };

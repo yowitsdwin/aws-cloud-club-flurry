@@ -7,6 +7,7 @@ import Highlights from './components/Highlights'
 import Leaderboard from './components/Leaderboard'
 import Testimonials from './components/Testimonials'
 import CTA from './components/CTA'
+import FAQs from './components/FAQs'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import CloudReveal from './components/CloudReveal'
@@ -45,6 +46,10 @@ function App() {
           <CloudReveal>
             <Testimonials />
           </CloudReveal>
+
+          <CloudReveal>
+            <FAQs />
+          </CloudReveal>
           
           <CloudReveal>
             <CTA />
@@ -58,4 +63,5 @@ function App() {
 }
 
 export default App
+
 
