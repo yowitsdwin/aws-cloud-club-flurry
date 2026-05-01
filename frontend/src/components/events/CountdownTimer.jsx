@@ -16,7 +16,7 @@ export default function CountdownTimer({ targetDate, className = "" }) {
         <div className={`flex items-center gap-1.5 ${className}`}>
             <Timer size={11} className="text-white/30 flex-shrink-0" />
             {expired ? (
-                <span className="text-xs font-semibold text-white/40">
+                <span className="text-xs font-semibold text-gray-800">
                     Event started
                 </span>
             ) : (

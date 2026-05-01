@@ -62,13 +62,13 @@ export default function EventCard({ event }) {
                 )}
             </div>
 
-            <div className="flex flex-col flex-1 p-5 gap-3 bg-[#0f172a]">
+            <div className="flex flex-col flex-1 p-5 gap-3 bg-white">
 
-                <h3 className="text-white font-bold text-sm leading-snug line-clamp-2">
+                <h3 className="text-black font-bold text-sm leading-snug line-clamp-2">
                     {event.title}
                 </h3>
 
-                <p className="text-gray-400 text-xs leading-relaxed line-clamp-2">
+                <p className="text-gray-600 text-xs leading-relaxed line-clamp-2">
                     {event.description}
                 </p>
 
@@ -106,7 +106,7 @@ export default function EventCard({ event }) {
 
                 <div className="pt-3 border-t border-white/[0.06] space-y-2">
 
-                    <div className="flex flex-col gap-1 text-[11px] text-gray-500">
+                    <div className="flex flex-col gap-1 text-[11px] text-black">
                         <span className="flex items-center gap-1.5">
                             <Calendar size={11} />
                             {formattedDate}
@@ -121,7 +121,7 @@ export default function EventCard({ event }) {
 
                     {event.upcoming && (
                         <div className="flex items-center gap-1.5">
-                            <span className="text-[10px] font-semibold text-white/25 uppercase tracking-wider">
+                            <span className="text-[10px] font-semibold text-black uppercase tracking-wider">
                                 Starts in
                             </span>
                             <CountdownTimer targetDate={event.date} />
@@ -131,9 +131,9 @@ export default function EventCard({ event }) {
                     {!event.upcoming && (
                         <span className="
                             inline-flex items-center gap-1.5 text-[10px] font-semibold
-                            text-white/25 tracking-wide uppercase
+                            text-black tracking-wide uppercase
                         ">
-                            <span className="w-1.5 h-1.5 rounded-full bg-white/20" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-black" />
                             Past event
                         </span>
                     )}

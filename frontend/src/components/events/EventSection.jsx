@@ -1,3 +1,4 @@
+import { Inbox } from "lucide-react";
 import EventCard from "./EventCard";
 
 export default function EventSection({ title, events = [] }) {
@@ -15,7 +16,7 @@ export default function EventSection({ title, events = [] }) {
 
             {events.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-14 rounded-2xl border border-dashed border-gray-200 text-center">
-                    <span className="text-3xl mb-3">📭</span>
+                    <Inbox size={32} className="text-gray-300 mb-3" />
                     <p className="text-gray-400 text-sm">No events found in this category.</p>
                 </div>
             ) : (
