@@ -5,6 +5,7 @@ import About from "../components/About";
 import Highlights from "../components/Highlights";
 import Leaderboard from "../components/Leaderboard";
 import Testimonials from "../components/Testimonials";
+import FAQs from "../components/FAQs";
 import CTA from "../components/CTA";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
@@ -43,6 +44,10 @@ function Landing() {
 
                     <CloudReveal>
                         <Testimonials />
+                    </CloudReveal>
+
+                    <CloudReveal>
+                        <FAQs />
                     </CloudReveal>
 
                     <CloudReveal>
