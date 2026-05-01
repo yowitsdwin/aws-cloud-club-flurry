@@ -1,61 +1,16 @@
-import React from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Partners from './components/Partners'
-import About from './components/About'
-import Highlights from './components/Highlights'
-import Leaderboard from './components/Leaderboard'
-import Testimonials from './components/Testimonials'
-import CTA from './components/CTA'
-import Footer from './components/Footer'
-import ScrollToTop from './components/ScrollToTop'
-import CloudReveal from './components/CloudReveal'
-import PageLoadReveal from './components/PageLoadReveal'
-import ParallaxClouds from './components/ParallaxClouds'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Landing from "./pages/Landing";
+import Events from "./pages/Events";
 
 function App() {
   return (
-    <div className="min-h-screen font-['League_Spartan','Inter',sans-serif] text-[#0d2845] relative">
-      {/* Global parallax cloud background */}
-      <ParallaxClouds />
-
-      <Navbar />
-      <main className="relative z-[1]">
-        <PageLoadReveal>
-          <Hero />
-        </PageLoadReveal>
-        
-        <CloudReveal>
-          <Partners />
-        </CloudReveal>
-        
-        <CloudReveal>
-          <About />
-        </CloudReveal>
-        
-        <CloudReveal>
-          <Highlights />
-        </CloudReveal>
-        
-        <div className="relative z-[4]">
-          <CloudReveal>
-            <Leaderboard />
-          </CloudReveal>
-          
-          <CloudReveal>
-            <Testimonials />
-          </CloudReveal>
-          
-          <CloudReveal>
-            <CTA />
-          </CloudReveal>
-        </div>
-      </main>
-      <Footer />
-      <ScrollToTop />
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/events" element={<Events />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
-
+export default App;

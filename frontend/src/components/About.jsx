@@ -61,7 +61,7 @@ const WaveDivider = ({ flip = false, color = 'rgba(255,255,255,0.5)' }) => (
 
 const About = () => {
   return (
-    <section className="relative z-[3] py-[100px] md:py-[130px] px-6"
+    <section id="about" className="relative z-[3] py-[100px] md:py-[130px] px-6"
       style={{ background: 'linear-gradient(180deg, rgba(224,242,255,0.6) 0%, rgba(240,249,255,0.85) 100%)' }}>
 
       {/* Cloud wave top */}

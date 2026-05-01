@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 const logo = '/images/logo.png';
 
 const Navbar = () => {
@@ -25,14 +26,20 @@ const Navbar = () => {
         </div>
 
         <ul className="hidden md:flex list-none gap-8 items-center">
-          {['Home', 'About Us', 'Events', 'Leaderboard', 'Blog'].map((item) => (
-            <li key={item}>
-              <a
-                href="#"
+          {[
+            { name: 'Home', path: '/' },
+            { name: 'About Us', path: '/#about' },
+            { name: 'Events', path: '/events' },
+            { name: 'Leaderboard', path: '/' },
+            { name: 'Blog', path: '/blog' }
+          ].map((item) => (
+            <li key={item.name}>
+              <Link
+                to={item.path}
                 className="text-text-main text-[0.95rem] font-medium transition-colors duration-200 hover:text-text-muted"
               >
-                {item}
-              </a>
+                {item.name}
+              </Link>
             </li>
           ))}
         </ul>
