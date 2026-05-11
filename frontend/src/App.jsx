@@ -7,15 +7,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Home page */}
         <Route
           path="/"
           element={
             <Landing />
           }
         />
-
-        {/* Events page */}
         <Route path="/events" element={<Events />} />
       </Routes>
     </BrowserRouter>

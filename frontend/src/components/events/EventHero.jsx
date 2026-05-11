@@ -15,7 +15,7 @@ export default function EventHero() {
             </h1>
 
             <p className="text-gray-500 mt-4 max-w-lg mx-auto text-base leading-relaxed">
-                Workshops, webinars, hackathons, and community learning experiences — all in one place.
+                Workshops, webinars, hackathons, and community learning experiences  all in one place
             </p>
         </section>
     );

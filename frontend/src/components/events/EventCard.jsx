@@ -10,7 +10,6 @@ export default function EventCard({ event }) {
     const [showHighlights, setShowHighlights] = useState(false);
 
     const colors = CATEGORY_COLORS[event.category] ?? {
-        bg: "bg-gray-500/15",
         text: "text-gray-400",
         dot: "bg-gray-400",
     };
@@ -21,16 +20,18 @@ export default function EventCard({ event }) {
         year: "numeric",
     });
 
-    const hasHighlights = event.highlights && event.highlights.length > 0;
+    const hasHighlights = event.highlights?.length > 0;
+
+    const handleRegisterClick = (e) => {
+        if (!event.registrationLink) {
+            e.preventDefault();
+            alert("Registration link is not available.");
+        }
+    };
 
     return (
-        <div className="
-            group flex flex-col rounded-2xl overflow-hidden
-            border border-white/10 bg-[#ffffff]
-            shadow-md shadow-gray-500/20
-            hover:-translate-y-1 hover:shadow-lg hover:shadow-black/30
-            transition-all duration-300
-        ">
+        <div className="group flex flex-col rounded-2xl overflow-hidden border bg-white shadow-md hover:-translate-y-1 transition-all duration-300">
+
             <div className="relative overflow-hidden">
                 <img
                     src={event.image}
@@ -39,22 +40,15 @@ export default function EventCard({ event }) {
                 />
 
                 <div className="absolute top-3 left-3">
-                    <span className={`
-                        flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full
-                        backdrop-blur-sm bg-black/50 border border-white/10
-                        ${colors.text}
-                    `}>
-                        <span className={`w-1.5 h-1.5 rounded-full ${colors.dot}`} />
+                    <span className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-black/50 text-white backdrop-blur-sm">
+                        <span className={"w-1.5 h-1.5 rounded-full " + colors.dot} />
                         {event.category}
                     </span>
                 </div>
 
-                {event.upcoming && event.seats && (
+                {event.seats && (
                     <div className="absolute top-3 right-3">
-                        <span className="
-                            flex items-center gap-1 text-[10px] font-bold px-2 py-1 rounded-full
-                            backdrop-blur-sm bg-black/50 border border-white/10 text-white/70
-                        ">
+                        <span className="flex items-center gap-1 text-[10px] font-bold px-2 py-1 rounded-full bg-black/50 text-white">
                             <Users size={9} />
                             {event.seats} seats
                         </span>
@@ -62,13 +56,12 @@ export default function EventCard({ event }) {
                 )}
             </div>
 
-            <div className="flex flex-col flex-1 p-5 gap-3 bg-white">
-
-                <h3 className="text-black font-bold text-sm leading-snug line-clamp-2">
+            <div className="p-5 flex flex-col gap-3">
+                <h3 className="font-bold text-sm text-black line-clamp-2">
                     {event.title}
                 </h3>
 
-                <p className="text-gray-600 text-xs leading-relaxed line-clamp-2">
+                <p className="text-xs text-gray-600 line-clamp-2">
                     {event.description}
                 </p>
 
@@ -82,62 +75,82 @@ export default function EventCard({ event }) {
                 {hasHighlights && (
                     <div>
                         <button
-                            onClick={() => setShowHighlights((v) => !v)}
-                            className="
-                                flex items-center gap-1 text-[11px] font-semibold
-                                text-white/40 hover:text-white/70
-                                transition-colors duration-150
-                            "
+                            onClick={() => setShowHighlights(!showHighlights)}
+                            className="text-xs font-semibold text-gray-500 flex items-center gap-1"
                         >
                             {showHighlights ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
                             {showHighlights ? "Hide highlights" : "Show highlights"}
                         </button>
 
                         {showHighlights && (
-                            <EventHighlights
-                                highlights={event.highlights}
-                                className="mt-2"
-                            />
+                            <EventHighlights highlights={event.highlights} className="mt-2" />
                         )}
                     </div>
                 )}
 
                 <div className="flex-1" />
 
-                <div className="pt-3 border-t border-white/[0.06] space-y-2">
-
-                    <div className="flex flex-col gap-1 text-[11px] text-black">
-                        <span className="flex items-center gap-1.5">
-                            <Calendar size={11} />
-                            {formattedDate}
-                        </span>
-                        {event.time && (
-                            <span className="flex items-center gap-1.5">
-                                <Clock size={11} />
-                                {event.time}
-                            </span>
-                        )}
+                <div className="text-[11px] text-black space-y-1 pt-3 border-t">
+                    <div className="flex items-center gap-1.5">
+                        <Calendar size={11} />
+                        {formattedDate}
                     </div>
 
-                    {event.upcoming && (
+                    {event.time && (
                         <div className="flex items-center gap-1.5">
-                            <span className="text-[10px] font-semibold text-black uppercase tracking-wider">
-                                Starts in
-                            </span>
-                            <CountdownTimer targetDate={event.date} />
+                            <Clock size={11} />
+                            {event.time}
                         </div>
                     )}
-
-                    {!event.upcoming && (
-                        <span className="
-                            inline-flex items-center gap-1.5 text-[10px] font-semibold
-                            text-black tracking-wide uppercase
-                        ">
-                            <span className="w-1.5 h-1.5 rounded-full bg-black" />
-                            Past event
-                        </span>
-                    )}
                 </div>
+
+                {event.speakers && event.speakers.length > 0 && (
+                    <div className="flex items-center gap-2 flex-wrap">
+                        {event.speakers.map((speaker) => (
+                            <div
+                                key={speaker.name}
+                                className="flex items-center gap-1.5 bg-gray-100 rounded-full px-2.5 py-1"
+                            >
+                                <div className="w-4 h-4 rounded-full bg-[#0d2845] flex items-center justify-center text-white text-[8px] font-bold">
+                                    {speaker.name.charAt(0)}
+                                </div>
+                                <span className="text-[11px] font-semibold text-gray-700">
+                                    {speaker.name}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                {event.upcoming && (
+                    <>
+                        <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase">
+                            Starts in
+                            <CountdownTimer targetDate={event.date} />
+                        </div>
+
+                        <a
+                            href={event.registrationLink || "https://www.meetup.com"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleRegisterClick}
+                            className={
+                                "block w-full mt-1 py-2 text-center rounded-xl text-xs font-bold transition-all duration-150 " +
+                                (event.registrationLink
+                                    ? "bg-[#0d2845] text-white hover:bg-[#1a4a7a] active:scale-95"
+                                    : "bg-gray-300 text-gray-500 cursor-not-allowed pointer-events-none")
+                            }
+                        >
+                            Register Now
+                        </a>
+                    </>
+                )}
+
+                {!event.upcoming && (
+                    <span className="text-[10px] font-semibold uppercase text-black">
+                        Past event
+                    </span>
+                )}
             </div>
         </div>
     );

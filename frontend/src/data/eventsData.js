@@ -9,17 +9,27 @@ export const ALL_EVENTS = [
         image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&q=80",
         upcoming: true,
         seats: 24,
+        registrationLink: "https://www.meetup.com/",
+        speakers: [
+            { name: "Aldwin", role: "Speaker" },
+            { name: "Mike", role: "Speaker" },
+        ],
     },
     {
         id: 2,
         title: "AI-Powered Products Webinar",
         description:
-            "Learn how to ship AI features responsibly with LLMs, safety, and UX design.",
+            "Learn how to ship AI features responsibly with LLMs",
         date: "2025-06-20",
         category: "Webinar",
         image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80",
         upcoming: true,
         seats: 200,
+        registrationLink: "https://www.meetup.com/",
+        speakers: [
+            { name: "Aldwin", role: "Speaker" },
+            { name: "Mike", role: "Speaker" },
+        ],
     },
     {
         id: 3,
@@ -31,6 +41,11 @@ export const ALL_EVENTS = [
         image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80",
         upcoming: true,
         seats: 80,
+        registrationLink: "https://www.meetup.com/",
+        speakers: [
+            { name: "Aldwin", role: "Speaker" },
+            { name: "Mike", role: "Speaker" },
+        ],
     },
     {
         id: 4,
@@ -42,8 +57,12 @@ export const ALL_EVENTS = [
         image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&q=80",
         upcoming: true,
         seats: 60,
+        registrationLink: "https://www.meetup.com/",
+        speakers: [
+            { name: "Aldwin", role: "Speaker" },
+            { name: "Mike", role: "Speaker" },
+        ],
     },
-
     {
         id: 5,
         title: "INTO THE CLOUDS | Github fundamentals with AWS Networking & Security",
@@ -54,6 +73,10 @@ export const ALL_EVENTS = [
         image: "/images/event3.png",
         upcoming: false,
         time: "1:00 PM - 5:00 PM",
+        speakers: [
+            { name: "Aldwin", role: "Speaker" },
+            { name: "Mike", role: "Speaker" },
+        ],
     },
     {
         id: 6,
@@ -65,6 +88,10 @@ export const ALL_EVENTS = [
         image: "/images/event2.jpg",
         upcoming: false,
         time: "9:00 AM - 12:00 PM",
+        speakers: [
+            { name: "Aldwin", role: "Speaker" },
+            { name: "Mike", role: "Speaker" },
+        ],
     },
     {
         id: 7,
@@ -76,6 +103,10 @@ export const ALL_EVENTS = [
         image: "/images/event1.png",
         upcoming: false,
         time: "7:00 PM - 9:00 PM",
+        speakers: [
+            { name: "Aldwin", role: "Speaker" },
+            { name: "Mike", role: "Speaker" },
+        ],
     },
 ];
 
