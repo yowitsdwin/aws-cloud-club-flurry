@@ -51,8 +51,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center gap-3 mb-5 justify-center md:justify-start">
-              <img src={logo} alt="AWS Cloud Club" className="w-10 h-10 rounded-full" style={{ filter: 'brightness(1.1)' }} />
-              <span className="text-[1.4rem] font-extrabold text-white">AWSCC – Flurry</span>
+              <img src={logo} alt="AWS Student Builder Group" className="w-10 h-10 rounded-full" style={{ filter: 'brightness(1.1)' }} />
+              <span className="text-[1.4rem] font-extrabold text-white">AWS Student Builder Group – Flurry</span>
             </div>
             <p className="leading-[1.7] max-w-[300px] mx-auto md:mx-0" style={{ color: 'rgba(200,225,255,0.65)' }}>
               Empowering students with cloud computing skills, industry networking, and community support.

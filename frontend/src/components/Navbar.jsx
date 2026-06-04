@@ -22,7 +22,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-3 font-semibold text-[0.9em] tracking-[-0.01em]">
           <img src={logo} alt="AWSCC Logo" className="h-[40px] w-auto object-contain" />
-          <span className="text-text-main">AWSCC - Flurry</span>
+          <span className="text-text-main">AWS Student Builder Group - Flurry</span>
         </div>
 
         <ul className="hidden md:flex list-none gap-8 items-center">

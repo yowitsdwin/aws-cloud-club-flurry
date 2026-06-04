@@ -87,7 +87,7 @@ const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.8rem] font-semibold tracking-wide mb-6 min-[640px]:mx-auto"
             style={{ background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(12px)', border: '1px solid rgba(147,210,255,0.5)', color: '#1a60b8', boxShadow: '0 2px 12px rgba(37,119,212,0.1)' }}>
-            ☁️ AWS Cloud Club · Flurry Chapter
+            ☁️ AWS Student Builder Group · Flurry Chapter
           </div>
 
           <h1 className="font-extrabold leading-[1.1] mb-5 tracking-[-0.04em] text-text-main text-[2.4rem] mt-2 lg:text-[4.2rem] lg:mt-0"
@@ -108,7 +108,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-[1.2rem] text-text-muted max-w-[580px] min-[640px]:mx-auto mb-10 leading-[1.65]">
-            Join AWS Cloud Club — a community of cloud learners, builders, and
+            Join AWS Student Builder Group — a community of cloud learners, builders, and
             leaders. Gain real-world skills, earn certifications, and grow with us.
           </p>
 

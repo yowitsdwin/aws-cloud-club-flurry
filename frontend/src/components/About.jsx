@@ -83,7 +83,7 @@ const About = () => {
             Who we are
           </h2>
           <p className="text-[1.15rem] text-text-muted leading-[1.7] mb-12">
-            AWS Cloud Club – Flurry is a vibrant community of students and professionals dedicated to mastering AWS technologies. We bridge the gap between academic theory and industry practice.
+            AWS Student Builder Group – Flurry is a vibrant community of students and professionals dedicated to mastering AWS technologies. We bridge the gap between academic theory and industry practice.
           </p>
         </div>
 

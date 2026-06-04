@@ -2,12 +2,12 @@ import React from 'react';
 
 const Partners = () => {
   const partners = [
-    "AWS Cloud Club - NU",
-    "AWS Cloud Club - SWU",
-    "AWS Cloud Club - UP",
-    "AWS Cloud Club - WILDQUACC",
-    "AWS Cloud Club - UC",
-    "AWS Cloud Club - CTU",
+    "AWS Student Builder Group - NU Cebu",
+    "AWS Student Builder Group - SWU",
+    "AWS Student Builder Group - UP",
+    "AWS Student Builder Group - WILDQUACC",
+    "AWS Student Builder Group - UC",
+    "AWS Student Builder Group - CTU",
     "AWS Cloud Club - User Group"
   ];
 
@@ -17,7 +17,7 @@ const Partners = () => {
         <p className="text-center text-[0.8rem] lg:text-[0.9rem] font-semibold uppercase tracking-[0.1em] text-text-muted mb-5 lg:mb-10">
           Our Community Partners
         </p>
-        
+
         <div className="w-full overflow-hidden relative">
           <div className="flex w-max gap-[40px] lg:gap-[80px] animate-[scroll_20s_linear_infinite] lg:animate-[scroll_30s_linear_infinite]">
             {[...partners, ...partners].map((partner, index) => (
@@ -29,7 +29,8 @@ const Partners = () => {
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes scroll {
           from { transform: translateX(0); }
           to { transform: translateX(calc(-50% - 40px)); }

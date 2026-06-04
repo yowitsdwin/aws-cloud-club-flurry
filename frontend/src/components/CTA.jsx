@@ -39,7 +39,7 @@ const CTA = () => {
               Ready to Build<br />the Future?
             </h2>
             <p className="text-[1.1rem] mb-10 leading-[1.6]" style={{ color: 'rgba(255,255,255,0.85)' }}>
-              Join AWS Cloud Club Flurry today and accelerate your cloud journey with hands-on experience.
+              Join AWS Student Builder Group Flurry today and accelerate your cloud journey with hands-on experience.
             </p>
             <div className="flex gap-4 flex-wrap justify-center md:justify-start max-[450px]:flex-col">
               <button
