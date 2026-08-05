@@ -6,7 +6,7 @@ const CTA = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="relative z-[6] px-6 pb-24 pt-10">
+    <div id="cta" className="relative z-[6] px-6 pb-24 pt-10">
       <section
         className="relative rounded-[24px] overflow-hidden mx-auto mt-8 md:mt-0 shadow-[0_20px_60px_rgba(37,119,212,0.2)]"
         style={{

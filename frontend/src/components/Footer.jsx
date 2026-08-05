@@ -28,7 +28,7 @@ const socialLinks = [
   { href: "https://web.facebook.com/profile.php?id=61583698383385", icon: "fa-facebook", label: "Facebook" },
 ];
 
-const quickLinks = ['Home', 'About Us', 'Events', 'Leaderboard', 'Blog'];
+const quickLinks = ['Home', 'About Us', 'Events', 'Blog'];
 
 const Footer = () => {
   return (

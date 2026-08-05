@@ -1,0 +1,31 @@
+{
+  "name": "aws-cloud-club-flurry-backend",
+  "version": "1.0.0",
+  "description": "Backend for AWS Cloud Club Flurry membership system using Fastify and Supabase",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "fastify",
+    "supabase",
+    "backend"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/cookie": "^11.0.2",
+    "@fastify/cors": "^11.2.0",
+    "@fastify/jwt": "^10.1.0",
+    "@supabase/supabase-js": "^2.43.4",
+    "dotenv": "^16.4.5",
+    "fastify": "^5.8.5",
+    "google-auth-library": "^10.9.0",
+    "resend": "^6.16.0"
+  },
+  "devDependencies": {
+    "pino-pretty": "^13.1.3"
+  }
+}

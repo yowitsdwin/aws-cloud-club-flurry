@@ -42,6 +42,8 @@ const InputField = ({ label, name, type = 'text', value, onChange, required, pla
 const MembershipForm = ({ onSubmitComplete }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isNextLoading, setIsNextLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [isSuccess, setIsSuccess] = useState(false);
   const [formData, setFormData] = useState({
     // Step 1: Personal Info
     firstName: '',
@@ -68,7 +70,11 @@ const MembershipForm = ({ onSubmitComplete }) => {
     if (name === 'college') {
       setFormData((prev) => ({ ...prev, college: value, program: '' }));
     } else {
-      setFormData((prev) => ({ ...prev, [name]: value }));
+      // Auto-capitalize personal info text fields for uniformity (names and student ID)
+      const uppercaseFields = ['firstName', 'lastName', 'middleName', 'nickname', 'studentId'];
+      const processedValue = uppercaseFields.includes(name) ? value.toUpperCase() : value;
+      
+      setFormData((prev) => ({ ...prev, [name]: processedValue }));
     }
   };
 
@@ -100,14 +106,40 @@ const MembershipForm = ({ onSubmitComplete }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsNextLoading(true);
-    setTimeout(() => {
-      console.log('Form Submitted', formData);
+    setError(null);
+
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+
+    try {
+      const response = await fetch(`${apiUrl}/memberships`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Something went wrong. Please try again.');
+      }
+
+      console.log('Form Submitted Successfully', result);
       setIsNextLoading(false);
-      if (onSubmitComplete) onSubmitComplete();
-    }, 1500);
+      setIsSuccess(true);
+    } catch (err) {
+      console.error('Submission Error:', err);
+      setError(err.message);
+      setIsNextLoading(false);
+      
+      // Scroll back to top of form area to show the error message
+      const scrollArea = document.getElementById('form-scroll-area');
+      if (scrollArea) scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   // Prevent form submission on enter key during steps 1-3
@@ -119,6 +151,27 @@ const MembershipForm = ({ onSubmitComplete }) => {
       handleNext();
     }
   };
+
+  if (isSuccess) {
+    return (
+      <div className="w-full flex flex-col items-center justify-center p-8 sm:p-12 text-center h-full animate-fadeIn max-w-[500px] mx-auto">
+        <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500 mb-6 shadow-[0_8px_24px_rgba(16,185,129,0.15)] border border-emerald-100">
+          <i className="fa-solid fa-circle-check text-4xl animate-bounce"></i>
+        </div>
+        <h3 className="text-2xl font-extrabold text-text-main mb-3">Application Submitted!</h3>
+        <p className="text-sm text-text-muted leading-relaxed mb-8">
+          Thank you for applying to the <strong>AWS Cloud Club - Flurry</strong>! Your application has been registered successfully. Our team will verify your details and notify you via email shortly.
+        </p>
+        <button
+          type="button"
+          onClick={onSubmitComplete}
+          className="btn-glow bg-[#1a60b8] text-white px-8 py-3 rounded-xl font-bold text-[0.95rem] transition-all hover:bg-[#2577d4] shadow-[0_4px_14px_rgba(26,96,184,0.3)] hover:shadow-[0_6px_20px_rgba(26,96,184,0.4)] w-full"
+        >
+          Awesome, Close
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full flex flex-col h-full overflow-hidden">
@@ -165,6 +218,15 @@ const MembershipForm = ({ onSubmitComplete }) => {
         style={{ scrollbarWidth: 'thin', scrollbarColor: '#bfdbfe transparent' }}
       >
         <form id="membership-form" onSubmit={handleFormSubmit} className="max-w-[600px] mx-auto pb-10">
+          {error && (
+            <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm flex items-start gap-2.5 animate-fadeIn">
+              <i className="fa-solid fa-triangle-exclamation mt-0.5"></i>
+              <div>
+                <p className="font-bold">Submission Failed</p>
+                <p className="opacity-90">{error}</p>
+              </div>
+            </div>
+          )}
           {currentStep === 1 && (
             <div className="animate-fadeIn">
               <h3 className="text-xl font-extrabold text-text-main mb-6">Personal Information</h3>

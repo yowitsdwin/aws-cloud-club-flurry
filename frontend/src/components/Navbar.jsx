@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import IDFinderModal from './IDFinderModal';
 const logo = '/images/logo.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isIDFinderOpen, setIsIDFinderOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +17,7 @@ const Navbar = () => {
   }, []);
 
   return (
+    <>
     <header className="fixed top-[20px] left-1/2 -translate-x-1/2 w-[90%] max-w-[1000px] z-[1000]">
       <nav
         className="flex justify-between items-center px-6 py-3 rounded-[100px] border border-white/30 backdrop-blur-[16px] shadow-premium bg-[rgba(240,249,255,0.7)] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
@@ -30,7 +33,6 @@ const Navbar = () => {
             { name: 'Home', path: '/' },
             { name: 'About Us', path: '/#about' },
             { name: 'Events', path: '/events' },
-            { name: 'Leaderboard', path: '/' },
             { name: 'Blog', path: '/blog' }
           ].map((item) => (
             <li key={item.name}>
@@ -45,8 +47,11 @@ const Navbar = () => {
         </ul>
 
         <div className="flex items-center gap-3">
-          <button className="hidden md:block bg-primary-dark text-white px-[32px] py-[14px] rounded-[10px] text-[0.95rem] font-medium leading-[normal] transition-all duration-200 hover:-translate-y-[1px] hover:shadow-[0_4px_12px_rgba(0,0,0,0.1)]">
-            Verify
+          <button
+            onClick={() => setIsIDFinderOpen(true)}
+            className="hidden md:block bg-primary-dark text-white px-[32px] py-[14px] rounded-[10px] text-[0.95rem] font-medium leading-[normal] transition-all duration-200 hover:-translate-y-[1px] hover:shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
+          >
+            ID Finder
           </button>
 
           <button
@@ -62,7 +67,7 @@ const Navbar = () => {
       ${isMenuOpen ? 'flex animate-[slideIn_0.3s_cubic-bezier(0.4,0,0.2,1)]' : 'hidden'}`}
         >
           <ul className="flex flex-col gap-2 w-full">
-            {['Home', 'About Us', 'Events', 'Leaderboard', 'Blog'].map((item, index) => (
+            {['Home', 'About Us', 'Events', 'Blog'].map((item, index) => (
               <li
                 key={item}
                 className={isMenuOpen ? "opacity-0 translate-y-2.5 animate-[staggerIn_0.4s_cubic-bezier(0.4,0,0.2,1)_forwards]" : "opacity-0"}
@@ -81,8 +86,11 @@ const Navbar = () => {
               className={`px-[20px] py-[10px] ${isMenuOpen ? "opacity-0 translate-y-2.5 animate-[staggerIn_0.4s_cubic-bezier(0.4,0,0.2,1)_forwards]" : "opacity-0"}`}
               style={{ animationDelay: '0.35s' }}
             >
-              <button className="w-full bg-primary-dark text-white py-[14px] rounded-[10px] font-medium leading-[normal] transition-all hover:-translate-y-[1px] hover:shadow-[0_4px_12px_rgba(0,0,0,0.1)]">
-                Verify
+              <button
+                onClick={() => { setIsIDFinderOpen(true); setIsMenuOpen(false); }}
+                className="w-full bg-primary-dark text-white py-[14px] rounded-[10px] font-medium leading-[normal] transition-all hover:-translate-y-[1px] hover:shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
+              >
+                ID Finder
               </button>
             </li>
           </ul>
@@ -103,6 +111,8 @@ const Navbar = () => {
       }} />
     </header>
 
+    <IDFinderModal isOpen={isIDFinderOpen} onClose={() => setIsIDFinderOpen(false)} />
+    </>
   );
 };
 

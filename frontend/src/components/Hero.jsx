@@ -119,6 +119,9 @@ const Hero = () => {
               Find out more
             </button>
             <button
+              onClick={() => {
+                document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="glass-card px-8 py-[14px] rounded-[12px] text-[0.9rem] font-medium text-[#1a60b8] transition-all hover:-translate-y-[2px]"
             >
               Join the Club ☁️

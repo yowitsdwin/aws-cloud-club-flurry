@@ -3,7 +3,6 @@ import Hero from "../components/Hero";
 import Partners from "../components/Partners";
 import About from "../components/About";
 import Highlights from "../components/Highlights";
-import Leaderboard from "../components/Leaderboard";
 import Testimonials from "../components/Testimonials";
 import FAQs from "../components/FAQs";
 import CTA from "../components/CTA";
@@ -38,10 +37,6 @@ function Landing() {
                 </CloudReveal>
 
                 <div className="relative z-[4]">
-                    <CloudReveal>
-                        <Leaderboard />
-                    </CloudReveal>
-
                     <CloudReveal>
                         <Testimonials />
                     </CloudReveal>
